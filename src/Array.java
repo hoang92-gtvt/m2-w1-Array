@@ -4,11 +4,16 @@ import java.util.Scanner;
 
 public class Array {
     public static void main(String[] args) {
-        int[] arrOut =  inputArr();
-        System.out.println(arrOut[0]);
-        int[] arrRevert = revertArr(arrOut);
-        System.out.println(arrRevert[0]);
-        System.out.print(arrRevert[0] + "\t");
+
+//        int[] arrOut =  inputArr();
+//        System.out.println(arrOut[0]);
+//        int[] arrRevert = revertArr(arrOut);
+//        System.out.println(arrRevert[0]);
+//        System.out.print(arrRevert[0] + "\t");
+
+          int[] arr3 = {1,2,3,4,4};
+          int k= getMax2(arr3);
+        System.out.println(k);
     }
 
     public static int[] inputArr(){
@@ -61,15 +66,54 @@ public class Array {
         return i;
     }
     public static int getMax(int [] arr){
-        int Max= arr[0];
+        int index=0;
+        int max= arr[0];
         for (int i = 1; i <arr.length ; i++) {
-            if(arr[i]>Max){
-                Max= arr[i];
+            if(arr[i]>max){
+                max= arr[i];
+                index=i;
             }
         }
-        System.out.println("Giá trị lớn nhất trong mảng là " + Max);
-        return Max;
+        System.out.println("Giá trị lớn nhất trong mảng là " + max + "tại vị trí thứ "+ index);
+        return max;
+//      return index;
+
     }
+    public static int getMin(int[] arr){
+        int index=0;
+        int min=arr[0];
+        for (int i = 1; i < arr.length ; i++) {
+            if(arr[i]<min){
+                min =arr[i];
+                index = i;
+            }
+
+        }
+        System.out.println("Giá trị nhỏ nhất trong mảng là "+ min + " tại vị trí " + index);
+        return min;
+//        return index;
+    }
+    public static int getMax2(int[] arr){
+        int index1 =0;
+        int index2 =1;
+        int max1=arr[0];
+        int max2=arr[1];
+        for (int i = 1; i <arr.length ; i++) {
+            if(arr[i]>max1){
+                max2 = max1;
+                max1= arr[i];
+                index2=index1;
+                index1=i;
+
+            }
+        }
+        System.out.println("giá trị lớn thứ 2 trong dãy là" + max2 + "tại vị trí " + index2);
+        return max2;
+    }
+
+
+
+
 
 
 }
