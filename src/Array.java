@@ -11,9 +11,16 @@ public class Array {
 //        System.out.println(arrRevert[0]);
 //        System.out.print(arrRevert[0] + "\t");
 
-          int[] arr3 = {1,2,3,4,4};
-          int k= getMax2(arr3);
-        System.out.println(k);
+          int[] arr3 = {1,2,3,5,4};
+//          int k= getMax2(arr3);
+//            System.out.println(k);
+//            int[]arr4=deleElement(arr3,1);
+//            System.out.println(arr4[1]);
+              int[]arr5=addElement(arr3,2,8);
+              System.out.println(arr5[2]);
+
+            int[]arr6=concatArray(arr3,arr3);
+            System.out.println(arr6[8]);
     }
 
     public static int[] inputArr(){
@@ -105,11 +112,86 @@ public class Array {
                 index2=index1;
                 index1=i;
 
+            }else {
+                if (arr[i]>max2){
+                    max2= arr[i];
+                    index2=i;
+                }
             }
         }
         System.out.println("giá trị lớn thứ 2 trong dãy là" + max2 + "tại vị trí " + index2);
         return max2;
     }
+
+    public static int[] deleElement(int[] arr,int index){
+        int[] arr2 =new int [arr.length-1];
+        for (int i = 0; i <index ; i++) {
+            arr2[i]=arr[i];
+        }
+
+        for (int i = index; i <arr.length-1 ; i++) {
+            arr2[i]=arr[i-1];
+        }
+        return arr2;
+
+    }
+    public static int[] addElement(int[]arr, int index, int value){
+        int[] arrnew=new int[arr.length+1];
+        if (index<0 && index>=arr.length){
+            return arr;
+
+        }else{
+            for (int i = 0; i < index; i++) {
+                arrnew[i] = arr[i];
+            };
+
+            arrnew[index] = value;
+
+            for (int i = index + 1; i < arr.length + 1; i++) {
+                arrnew[i] = arr[i-1];
+            }
+            return arrnew;
+        }
+
+    }
+    public static int[] pushArray(int[]arr, int value){
+        int[] arrnew=new int[arr.length+1];
+
+        for (int i = 0; i < arr.length; i++) {
+            arrnew[i] = arr[i];
+        };
+
+        arrnew[arr.length] = value;
+
+        return arrnew;
+
+
+    }
+    public static int[] popArray(int[]arr){
+        int[] arrnew=new int[arr.length-1];
+
+        for (int i = 0; i < arr.length-1; i++) {
+            arrnew[i] = arr[i];
+        };
+        return arrnew;
+   }
+    public static int[] concatArray(int[]arr,int[]arr2 ){
+        int[] arrnew=new int[arr.length+arr2.length];
+        System.out.println(arrnew.length);
+        for (int i = 0; i < arr.length; i++) {
+            arrnew[i] = arr[i];
+        }
+        for (int j = 0; j < arr2.length; j++) {
+            arrnew[arr.length+j] = arr2[j];
+        }
+
+        return arrnew;
+    }
+
+
+
+
+
 
 
 
